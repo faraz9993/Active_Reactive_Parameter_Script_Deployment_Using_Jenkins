@@ -1,11 +1,11 @@
-# Jenkins Active Reactive Parameter and Script Deployment on Server 
+# Jenkins Active Reactive Choice Parameter Configuration and Script Deployment on Server 
 
 ### In this task, I have created two parameters in Jenkins pipeline.
-### One parameter, lists all the folder in the S3 bucket and other parameter takes the reference from the first parameter and lists all the files in that folder.
+### One parameter, lists all the folders in the S3 bucket and other parameter takes the reference from the first parameter and lists all the files within that selected folder.
 
-### Not only this, but the selected file will be deployed on an EC2 instance will be executed over there as well.
+### Not only this, but the selected script will be deployed on an EC2 instance and will be executed over there as well.
 
-### Prerequisites
+### Prerequisites:
 ```
 Plugins:
 
@@ -17,12 +17,11 @@ Plugins:
 6. AnsiColor
 
 
-Jenkins user on the server must have aws credentials configured.
-
+> Jenkins user on the server must have aws credentials configured:
 su - jenkins
 aws configure
 
-SSH must be installed on the EC2 instance using Jenkins Server.
+SSH must be configured with the EC2 instance using Jenkins user.
 ```
 
 ### So, first of all, create a pipeline > go to configuration > Select "This project is parameterised"
@@ -44,7 +43,7 @@ Choice Type: Single Select
 Filter starts at: 1
 ```
 
-### Add Parameter: Active Choices Reactive Parameter
+### > Add Parameter: Active Choices Reactive Parameter
 ### Select Groovy Script
 
 ```
@@ -71,8 +70,8 @@ Filter Starts At: 1
 ### This set-up must show the list of all the folders and files accordingly.
 
 
-### Next, it's time to write a pipeline script.
-### Before, that you need to add the server ip address as username and its pem file in Jenkins Credentials.
+### Now, it's time to write a pipeline script.
+### Before that, you need to add the server ip address as username and its pem file in Jenkins Credentials.
 
 ```
 Dashboard > Manage Jenkins > Credentials > System > Global Credentials > SSH Username with private key
